@@ -1,10 +1,12 @@
 import lombok.Data;
+import org.springframework.data.convert.Jsr310Converters;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.sql.Timestamp;
+import java.time.ZonedDateTime;
 
 @Entity
 @Data
@@ -27,14 +29,12 @@ public class TransactionHistory {
     @Column(nullable = false)
     private String status;
 
-    @Id
     @Column(nullable = false)
-    private Long accId;
+    private Long accountId;
 
-    @Id
     @Column(nullable = false)
     private Long externalBankId;
 
     @Column(nullable = false)
-    private Timestamp dateTime;
+    private ZonedDateTime dateTime;
 }
